@@ -1,0 +1,33 @@
+<div class="container ">
+  <div class="row row align-items-start ">
+
+
+    <div class="col">
+      <div class="container p-2 mt-5">
+        <button type="button" class="btn btn-outline-dark p-2 " (click)="WhenClicked()" >All Images(Diagrams & UI) Entered in SDLC Tab</button>
+        <div class="card w-75 mt-3" *ngIf="open">
+          <div class="card-header">
+            Diagrams
+          </div>
+          <ul  class="list-group list-group-flush">
+            <div *ngFor="let diagram of Diagrams">
+            <li class="mt-2 list-group-item"><a [routerLink]="['/','AllFiles',diagram.name]" (click)="OpenDiagram()">{{diagram.name}}</a></li>
+          </div>
+          </ul>
+        </div>
+
+        </div>
+    </div>
+    <div class="col  align-items-stretch">
+      <div class="card-diagram p-2 mt-5 border border-dark" *ngIf="close">
+
+        <button type="button" class="btn-close" (click)="CloseDiagram()"></button>
+        <router-outlet></router-outlet>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
